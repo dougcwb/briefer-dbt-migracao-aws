@@ -475,6 +475,16 @@ Após configurar todas as camadas, execute o DBT para materializar as views:
 dbt run
 ```
 
+### **Gerar documentação do DBT**
+```bash
+dbt docs generate
+```
+
+### **Abrir página web com os docs do DBT**
+```bash
+dbt docs serve --port 8081
+```
+
 ### **Conclusão**
 
 Este README detalha a importância de analisar os dados de vendas usando SQL, explicando passo a passo cada query utilizada no projeto de CRM e Vendas. As queries apresentadas fornecem uma base sólida para entender o comportamento de vendas, identificar padrões e ajustar estratégias de negócio, proporcionando uma vantagem competitiva significativa no mercado.
