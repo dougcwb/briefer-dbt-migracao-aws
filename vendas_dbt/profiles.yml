@@ -1,0 +1,12 @@
+vendas_dbt:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: dpg-crh0qtij1k6c73dq732g-a.oregon-postgres.render.com
+      user: postgres_doug
+      password: P9OAyKip0rPm3QRUOscI1OMhcfDeU4uQ
+      port: 5432
+      dbname: crm_vendas_n7pv
+      schema: public
+      threads: 4

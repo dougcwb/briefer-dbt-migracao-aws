@@ -26,3 +26,15 @@ Happy modeling!
 [0m17:26:20.542410 [debug] [MainThread]: Command `dbt init` succeeded at 17:26:20.542410 after 70.95 seconds
 [0m17:26:20.543410 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002257FAF10D0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022503207F50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000022505146C10>]}
 [0m17:26:20.543410 [debug] [MainThread]: Flushing usage events
+[0m11:21:02.600010 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E36E2F6C00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E36FFA8440>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E36D3DA1E0>]}
+
+
+============================== 11:21:02.608037 | 0f875ba3-f96b-48d5-b840-873defea75be ==============================
+[0m11:21:02.608037 [info ] [MainThread]: Running with dbt=1.8.6
+[0m11:21:02.609037 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': 'C:\\Users\\dowg\\.dbt', 'fail_fast': 'False', 'warn_error': 'None', 'log_path': 'logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'empty': 'None', 'log_format': 'default', 'invocation_command': 'dbt init vendas_dbt', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m11:21:02.625012 [warn ] [MainThread]: [ConfigFolderDirectory]: Unable to parse dict {'dir': WindowsPath('C:/Users/dowg/.dbt')}
+[0m11:21:02.626009 [info ] [MainThread]: Creating dbt configuration folder at 
+[0m11:21:02.628011 [info ] [MainThread]: A project called vendas_dbt already exists here.
+[0m11:21:02.630039 [debug] [MainThread]: Command `dbt init` succeeded at 11:21:02.629009 after 0.15 seconds
+[0m11:21:02.630039 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E370C54170>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E370A00740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001E37054A000>]}
+[0m11:21:02.631038 [debug] [MainThread]: Flushing usage events
