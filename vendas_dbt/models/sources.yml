@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: vendas_source
+    schema: public
+    tables:
+      - name: vendas
+        description: "Tabela com dados brutos de vendas"
