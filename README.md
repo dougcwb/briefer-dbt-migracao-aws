@@ -54,6 +54,7 @@ FROM
 **Descrição:**
 - Essa query retorna todos os registros da tabela de vendas, exibindo todos os campos (email, data, valor, quantidade, produto).
 - **Importância:** Útil para obter uma visão geral de todas as vendas realizadas, especialmente para verificar a integridade dos dados.
+- **Importância:** Criei um script `generate.py` em python usando a biblioteca FAKER para gerar dados para a tabela de vendas.
 
 #### **2. Datas Distintas**
 
