@@ -1,6 +1,6 @@
 {{ config(materialized='view') }}
 
-WITH vendas_7_dias_vendedor AS (
+WITH gold_vendas_por_vendedor AS (
     SELECT 
         email AS vendedor, 
         DATE(data) AS data, 
@@ -22,6 +22,6 @@ SELECT
     total_quantidade, 
     total_vendas
 FROM 
-    vendas_7_dias_vendedor
+    gold_vendas_por_vendedor
 ORDER BY 
     data ASC, vendedor ASC
