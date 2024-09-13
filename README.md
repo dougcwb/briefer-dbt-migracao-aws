@@ -1,4 +1,4 @@
-### **README - Sistema de CRM e Vendas**
+# **README - Sistema de CRM e Vendas**
 
 Esse repositório faz parte da aula sobre análise de dados de vendas utilizando SQL, com foco em consultas essenciais para monitoramento de desempenho e identificação de padrões de vendas.
 
@@ -7,23 +7,28 @@ Esse repositório faz parte da aula sobre análise de dados de vendas utilizando
 1. [Introdução](#introdução)
 2. [Importância da Análise de Dados](#importância-da-análise-de-dados)
 3. [Queries e Explicações](#queries-e-explicações)
-   - [Consulta Completa de Vendas](#consulta-completa-de-vendas)
-   - [Datas Distintas](#datas-distintas)
-   - [Contagem de Vendas por Data](#contagem-de-vendas-por-data)
-   - [Preços Distintos](#preços-distintos)
-   - [Contagem de Vendas por Valor](#contagem-de-vendas-por-valor)
-   - [Vendas dos Últimos 7 Dias](#vendas-dos-últimos-7-dias)
-   - [Vendas com Valor Inferior a 6 Mil no Período de 01/09/2024 a 11/09/2024](#vendas-com-valor-inferior-a-6-mil-no-período-de-01-09-2024-a-11-09-2024)
-   - [Agregação de Vendas por Dia e Produto](#agregação-de-vendas-por-dia-e-produto)
+   - [Consulta Completa de Vendas](#1-consulta-completa-de-vendas)
+   - [Datas Distintas](#2-datas-distintas)
+   - [Contagem de Vendas por Data](#3-contagem-de-vendas-por-data)
+   - [Preços Distintos](#4-preços-distintos)
+   - [Contagem de Vendas por Valor](#5-contagem-de-vendas-por-valor)
+   - [Vendas dos Últimos 7 Dias](#6-vendas-dos-últimos-7-dias)
+   - [Vendas com Valor Inferior a 6 Mil no Período de 01/09/2024 a 11/09/2024](#7-vendas-com-valor-inferior-a-6-mil-no-período-de-01092024-a-11092024)
+   - [Agregação de Vendas por Dia e Produto](#8-agregação-de-vendas-por-dia-e-produto)
 4. [Análises Importantes](#análises-importantes)
 5. [Instalação e Configuração do DBT](#instalação-e-configuração-do-dbt)
 6. [Estrutura do Projeto](#estrutura-do-projeto)
    - [Configuração do Source](#configuração-do-source)
    - [Camada Bronze](#camada-bronze)
    - [Camada Silver](#camada-silver)
-   - [Camada Gold](#camada-gold)
+   - [Camada Gold](#camada-gold---agregados-dos-últimos-7-dias)
 7. [Execução do Projeto DBT](#execução-do-projeto-dbt)
-8. [Conclusão](#conclusão)
+8. [Documentação do DBT](#documentação-do-dbt)
+   - [Página de documentação](#página-de-documentação)
+9. [Migração para o AWS](#migração-para-o-aws)
+   - [DBT seed](#dbt-seed)
+   - [Mudando o Profiles](#mudando-o-profiles)
+   - [Deploy AWS](#deploy-aws)
 
 ---
 
@@ -469,24 +474,45 @@ ORDER BY
 
 ### **Execução do Projeto DBT**
 
-Após configurar todas as camadas, execute o DBT para materializar as views:
+Após configurar todas as camadas, execute o DBT para materializar as views medalion:
 
 ```bash
 dbt run
 ```
 
-### **Gerar documentação do DBT**
+### **Documentação do DBT**
+Gerar a documentação:
 ```bash
 dbt docs generate
 ```
 
-### **Abrir página web com os docs do DBT**
+#### **Página de documentação**
+Abrir página web com os docs do DBT
 ```bash
 dbt docs serve --port 8081
 ```
 
-### **Conclusão**
+### Migração para o AWS
+Abra o Breiefer e selecione toda a tabela:
 
-Este README detalha a importância de analisar os dados de vendas usando SQL, explicando passo a passo cada query utilizada no projeto de CRM e Vendas. As queries apresentadas fornecem uma base sólida para entender o comportamento de vendas, identificar padrões e ajustar estratégias de negócio, proporcionando uma vantagem competitiva significativa no mercado.
+```sql
+SELECT 
+    * 
+FROM 
+    vendas
+```
+Use o botão para baixar os dados em formato CSV. Salve na pasta `seed`
 
-As análises realizadas não só ajudam a visualizar o desempenho atual, mas também preparam as empresas para futuras decisões estratégicas, garantindo que as operações sejam orientadas por dados e insights acionáveis.
+#### **DBT seed**
+Os arquivos salvos em formato CSV na pasta `seed` serão enviados para o banco como tabela com o comando:
+```bash
+dbt seed
+```
+
+#### **Mudando o Profiles**
+- Configure o arquivo `profiles.yml` adicionando uma conexão do AWS;
+- Mude o profile, adicionado anteriormente, no arquivo `dbt-project.yml`;
+
+#### **Deploy AWS**
+- Faça um `dbt debug` para testar a conexão no novo banco de dados;
+- Faça um `dbt run` para fazer o deploy das views no AWS.

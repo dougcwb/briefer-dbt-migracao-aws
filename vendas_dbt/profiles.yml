@@ -10,3 +10,15 @@ vendas_dbt:
       dbname: crm_vendas_n7pv
       schema: public
       threads: 4
+vendas_aws:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: database-1.c1yceiekak1z.us-east-1.rds.amazonaws.com
+      user: postgres_doug
+      password: P9OAyKip0rPm3QRUOscI1OMhcfDeU4uQ
+      port: 5432
+      dbname: crm_vendas_n7pv
+      schema: public
+      threads: 1     
